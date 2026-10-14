@@ -12,5 +12,20 @@ class Product:
     category = ''
     __str__ = ''
 
+    def __init__(self,s,n,c,str):
+        self.slug = s
+        self.slug = n
+        self.category = c
+        self.__str__ = str
 
     def find(products, keyword):
+        pass
+
+Products = [
+    [["fc-1"], ["FC-1"], ["filter catridge"]],
+    [["fc-2"], ["FC-2"], ["filter catridge"]],
+    [["fh-1"], ["FH-1"], ["filter housing"]],
+    [["fh-2"], ["FH-2"], ["filter housing"]],
+    [["fh-3"], ["FH-3"], ["filter housing"]]
+    ]
+for i in Products: print(i)
