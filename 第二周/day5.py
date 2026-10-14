@@ -6,8 +6,11 @@
 每完成一个函数就 git commit。
 """
 
-class Product():
+class Product:
     slug = ''
     name = ''
     category = ''
-    def __str__(self):
+    __str__ = ''
+
+
+    def find(products, keyword):
