@@ -1,31 +1,33 @@
-"""
-写一个 Product 类,属性有 slug、name、category,再加 __str__。
-用列表存 5 个产品。
-写 find(products, keyword),按名字查找。
-写 count_by_category(products),返回 {"分类": 个数} 的字典。
-每完成一个函数就 git commit。
-"""
-
 class Product:
-    slug = ''
-    name = ''
-    category = ''
-    __str__ = ''
+    def __init__(self, slug, name, category):
+        self.slug = slug
+        self.name = name
+        self.category = category
 
-    def __init__(self,s,n,c,str):
-        self.slug = s
-        self.slug = n
-        self.category = c
-        self.__str__ = str
+    def __str__(self):
+        return f"{self.name} (slug: {self.slug}, category:{self.category})"
 
     def find(products, keyword):
-        pass
+        result = []
+        keyword = keyword.lower()
+        for p in products:
+            if keyword in p.name.lower():
+                result.append(p)
+        return result
 
-Products = [
-    [["fc-1"], ["FC-1"], ["filter catridge"]],
-    [["fc-2"], ["FC-2"], ["filter catridge"]],
-    [["fh-1"], ["FH-1"], ["filter housing"]],
-    [["fh-2"], ["FH-2"], ["filter housing"]],
-    [["fh-3"], ["FH-3"], ["filter housing"]]
-    ]
-for i in Products: print(i)
+    def count_by_category(products):
+        counts = {}
+        for p in products:
+            counts[p.category] = counts.get(p.category, 0) + 1
+        return counts
+    
+products = [
+    Product("fc-1", "FC-1", "filter cartridge"),
+    Product("fc-2", "FC-2", "filter cartridge"),
+    Product("fc-3", "FC-3", "filter cartridge"),
+    Product("fh-1", "FH-1", "filter housing"),
+    Product("fh-2", "FH-2", "filter housing"),
+]
+
+print(Product.count_by_category(products))
+print([str(p) for p in Product.find(products, "FH")])
