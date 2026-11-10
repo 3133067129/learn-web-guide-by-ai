@@ -2,8 +2,9 @@ from django.shortcuts import render, get_object_or_404
 from django.template import loader
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.db.models import F
-from django.urls import reverse, timezone
+from django.urls import reverse
 from django.views import generic
+from django.utils import timezone
 
 from .models import Question, Choice
 
